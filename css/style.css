@@ -18,12 +18,26 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--bg-dark);
+  background-color: #000;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,10%,1) 0, transparent 50%);
   color: var(--text-main);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  position: relative;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 100;
 }
 
 .container {
@@ -155,4 +169,35 @@ h2 { font-size: clamp(32px, 5vw, 64px); font-weight: 900; letter-spacing: -0.04e
   h1 { font-size: 42px; line-height: 1.0; }
   .hero-sub { font-size: 16px; margin-bottom: 32px; }
   .section-v2 { padding: 60px 0; }
+  
+  /* Refined Buttons Mobile */
+  .btn-premium, .btn-secondary {
+    padding: 14px 24px;
+    font-size: 14px;
+    height: auto;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .hero-btns {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .hero-btns .btn-premium, .hero-btns .btn-secondary {
+    flex: 1;
+    max-width: 180px;
+  }
+
+  .contact-item {
+    text-align: center;
+  }
+  .contact-item a {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
 }
